@@ -6,21 +6,14 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Dropdown, DropdownContent, DropdownTrigger } from "./ui/dropdown";
 
-type PropsType<TItem> = {
-  defaultValue?: TItem;
-  items?: TItem[];
-  sectionKey: string;
-  minimal?: boolean;
-};
-
 const PARAM_KEY = "selected_time_frame";
 
-export function PeriodPicker<TItem extends string>({
+export function PeriodPicker({
   defaultValue,
   sectionKey,
   items,
   minimal,
-}: PropsType<TItem>) {
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -74,20 +67,16 @@ export function PeriodPicker<TItem extends string>({
   );
 }
 
-const createQueryString = (props: {
-  sectionKey: string;
-  value: string;
-  selectedTimeFrame: string | null;
-}) => {
-  const paramsValue = `${props.sectionKey}:${props.value}`;
+function createQueryString({ sectionKey, value, selectedTimeFrame }) {
+  const paramsValue = `${sectionKey}:${value}`;
 
-  if (!props.selectedTimeFrame) {
+  if (!selectedTimeFrame) {
     return `?${PARAM_KEY}=${paramsValue}`;
   }
 
-  const newSearchParams = props.selectedTimeFrame
+  const newSearchParams = selectedTimeFrame
     .split(",")
-    .filter((value) => !value.includes(props.sectionKey))
+    .filter((value) => !value.includes(sectionKey))
     .join(",");
 
   if (!newSearchParams) {
@@ -95,4 +84,4 @@ const createQueryString = (props: {
   }
 
   return `?${PARAM_KEY}=${newSearchParams},${paramsValue}`;
-};
+}
