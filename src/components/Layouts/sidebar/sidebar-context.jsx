@@ -3,17 +3,7 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type SidebarState = "expanded" | "collapsed";
-
-type SidebarContextType = {
-  state: SidebarState;
-  isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
-  isMobile: boolean;
-  toggleSidebar: () => void;
-};
-
-const SidebarContext = createContext<SidebarContextType | null>(null);
+const SidebarContext = createContext(null);
 
 export function useSidebarContext() {
   const context = useContext(SidebarContext);
@@ -23,13 +13,7 @@ export function useSidebarContext() {
   return context;
 }
 
-export function SidebarProvider({
-  children,
-  defaultOpen = true,
-}: {
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-}) {
+export function SidebarProvider({ children, defaultOpen = true }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const isMobile = useIsMobile();
 

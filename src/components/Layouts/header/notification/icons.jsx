@@ -1,6 +1,4 @@
-import { SVGProps } from "react";
-
-export function BellIcon(props: SVGProps<SVGSVGElement>) {
+export function BellIcon(props) {
   return (
     <svg width={20} height={20} viewBox="0 0 20 20" fill="none" {...props}>
       <path

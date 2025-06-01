@@ -19,20 +19,13 @@ const menuItemBaseStyles = cva(
   },
 );
 
-export function MenuItem(
-  props: {
-    className?: string;
-    children: React.ReactNode;
-    isActive: boolean;
-  } & ({ as?: "button"; onClick: () => void } | { as: "link"; href: string }),
-) {
+export function MenuItem(props) {
   const { toggleSidebar, isMobile } = useSidebarContext();
 
   if (props.as === "link") {
     return (
       <Link
         href={props.href}
-        // Close sidebar on clicking link if it's mobile
         onClick={() => isMobile && toggleSidebar()}
         className={cn(
           menuItemBaseStyles({
