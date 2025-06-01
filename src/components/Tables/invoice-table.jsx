@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { TrashIcon } from "@/assets/icons";
 import {
   Table,
@@ -12,8 +13,17 @@ import dayjs from "dayjs";
 import { getInvoiceTableData } from "./fetch";
 import { DownloadIcon, PreviewIcon } from "./icons";
 
-export async function InvoiceTable() {
-  const data = await getInvoiceTableData();
+export function InvoiceTable() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const result = await getInvoiceTableData();
+      setData(result);
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <div className="rounded-[10px] border border-stroke bg-white p-4 shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card sm:p-7.5">
@@ -54,7 +64,7 @@ export async function InvoiceTable() {
                         item.status === "Unpaid",
                       "bg-[#FFA70B]/[0.08] text-[#FFA70B]":
                         item.status === "Pending",
-                    },
+                    }
                   )}
                 >
                   {item.status}
