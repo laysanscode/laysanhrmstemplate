@@ -74,6 +74,7 @@ export function CampaignVisitorsChart({ data }) {
             data,
           },
         ]}
+        
         type="bar"
         height={230}
       />
