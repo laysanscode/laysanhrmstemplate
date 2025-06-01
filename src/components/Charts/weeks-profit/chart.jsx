@@ -1,21 +1,13 @@
 "use client";
 
-import type { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
-
-type PropsType = {
-  data: {
-    sales: { x: string; y: number }[];
-    revenue: { x: string; y: number }[];
-  };
-};
 
 const Chart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-export function WeeksProfitChart({ data }: PropsType) {
-  const options: ApexOptions = {
+export function WeeksProfitChart({ data }) {
+  const options = {
     colors: ["#5750F1", "#0ABEF9"],
     chart: {
       type: "bar",
@@ -91,6 +83,7 @@ export function WeeksProfitChart({ data }: PropsType) {
       opacity: 1,
     },
   };
+
   return (
     <div className="-ml-3.5 mt-3">
       <Chart

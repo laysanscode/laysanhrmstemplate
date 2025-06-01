@@ -1,24 +1,16 @@
 "use client";
 
 import { useIsMobile } from "@/hooks/use-mobile";
-import type { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
-
-type PropsType = {
-  data: {
-    received: { x: unknown; y: number }[];
-    due: { x: unknown; y: number }[];
-  };
-};
 
 const Chart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-export function PaymentsOverviewChart({ data }: PropsType) {
+export function PaymentsOverviewChart({ data }) {
   const isMobile = useIsMobile();
 
-  const options: ApexOptions = {
+  const options = {
     legend: {
       show: false,
     },

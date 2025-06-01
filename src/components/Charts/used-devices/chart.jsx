@@ -1,19 +1,14 @@
 "use client";
 
 import { compactFormat } from "@/lib/format-number";
-import type { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
-
-type PropsType = {
-  data: { name: string; amount: number }[];
-};
 
 const Chart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-export function DonutChart({ data }: PropsType) {
-  const chartOptions: ApexOptions = {
+export function DonutChart({ data }) {
+  const chartOptions = {
     chart: {
       type: "donut",
       fontFamily: "inherit",

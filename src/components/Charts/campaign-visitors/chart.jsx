@@ -1,21 +1,13 @@
 "use client";
 
-import type { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
-
-type PropsType = {
-  data: {
-    x: string;
-    y: number;
-  }[];
-};
 
 const Chart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-export function CampaignVisitorsChart({ data }: PropsType) {
-  const options: ApexOptions = {
+export function CampaignVisitorsChart({ data }) {
+  const options = {
     colors: ["#5750F1"],
     chart: {
       fontFamily: "Satoshi, sans-serif",
