@@ -1,21 +1,13 @@
 import { cn } from "@/lib/utils";
 import { useId } from "react";
 
-type PropsType = {
-  variant?: "dot" | "circle";
-  label: string;
-  name?: string;
-  value?: string;
-  minimal?: boolean;
-};
-
 export function RadioInput({
   label,
   variant = "dot",
   name,
   value,
   minimal,
-}: PropsType) {
+}) {
   const id = useId();
 
   return (

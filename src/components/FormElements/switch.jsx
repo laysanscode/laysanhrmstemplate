@@ -2,19 +2,7 @@ import { CheckIcon, XIcon } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 import { useId } from "react";
 
-type PropsType = {
-  withIcon?: boolean;
-  background?: "dark" | "light";
-  backgroundSize?: "sm" | "default";
-  name?: string;
-};
-
-export function Switch({
-  background,
-  withIcon,
-  backgroundSize,
-  name,
-}: PropsType) {
+export function Switch({ background, withIcon, backgroundSize, name }) {
   const id = useId();
 
   return (
@@ -38,7 +26,7 @@ export function Switch({
               "-top-1 left-0 size-7 shadow-switch-2": backgroundSize === "sm",
               "peer-checked:bg-primary peer-checked:dark:bg-white":
                 background !== "dark",
-            },
+            }
           )}
         >
           {withIcon && (

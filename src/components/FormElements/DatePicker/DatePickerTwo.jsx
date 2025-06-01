@@ -1,12 +1,12 @@
 "use client";
 
-import { ChevronUpIcon } from "@/assets/icons";
-import flatpickr from "flatpickr";
 import { useEffect } from "react";
+import flatpickr from "flatpickr";
+import { ChevronUpIcon } from "@/assets/icons";
 
 const DatePickerTwo = () => {
   useEffect(() => {
-    // Init flatpickr
+    // Initialize flatpickr
     flatpickr(".form-datepicker", {
       mode: "single",
       static: true,
@@ -26,7 +26,6 @@ const DatePickerTwo = () => {
           placeholder="mm/dd/yyyy"
           data-class="flatpickr-right"
         />
-
         <div className="pointer-events-none absolute inset-0 left-auto right-5 flex items-center text-dark-4 dark:text-dark-6">
           <ChevronUpIcon className="rotate-180" />
         </div>

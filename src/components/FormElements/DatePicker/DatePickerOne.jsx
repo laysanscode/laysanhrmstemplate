@@ -1,12 +1,12 @@
 "use client";
 
-import { Calendar } from "@/components/Layouts/sidebar/icons";
-import flatpickr from "flatpickr";
 import { useEffect } from "react";
+import flatpickr from "flatpickr";
+import { Calendar } from "@/components/Layouts/sidebar/icons";
 
 const DatePickerOne = () => {
   useEffect(() => {
-    // Init flatpickr
+    // Initialize flatpickr on input with class 'form-datepicker'
     flatpickr(".form-datepicker", {
       mode: "single",
       static: true,
@@ -26,7 +26,6 @@ const DatePickerOne = () => {
           placeholder="mm/dd/yyyy"
           data-class="flatpickr-right"
         />
-
         <div className="pointer-events-none absolute inset-0 left-auto right-5 flex items-center">
           <Calendar className="size-5 text-[#9CA3AF]" />
         </div>

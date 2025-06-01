@@ -4,16 +4,6 @@ import { ChevronUpIcon } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 import { useId, useState } from "react";
 
-type PropsType = {
-  label: string;
-  items: { value: string; label: string }[];
-  prefixIcon?: React.ReactNode;
-  className?: string;
-} & (
-  | { placeholder?: string; defaultValue: string }
-  | { placeholder: string; defaultValue?: string }
-);
-
 export function Select({
   items,
   label,
@@ -21,7 +11,7 @@ export function Select({
   placeholder,
   prefixIcon,
   className,
-}: PropsType) {
+}) {
   const id = useId();
 
   const [isOptionSelected, setIsOptionSelected] = useState(false);

@@ -1,7 +1,9 @@
-import { useState } from "react";
+'use client';
+
+import { useState } from 'react';
 
 const CheckboxFive = () => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <div>
@@ -14,13 +16,12 @@ const CheckboxFive = () => {
             type="checkbox"
             id="checkboxLabelFive"
             className="sr-only"
-            onChange={() => {
-              setIsChecked(!isChecked);
-            }}
+            checked={isChecked}
+            onChange={() => setIsChecked(!isChecked)}
           />
           <div
             className={`box mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-primary ${
-              isChecked && "!border-4"
+              isChecked ? '!border-4' : ''
             }`}
           >
             <span className="h-2.5 w-2.5 rounded-full bg-white dark:bg-transparent"></span>
