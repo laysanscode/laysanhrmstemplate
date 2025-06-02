@@ -1,30 +1,12 @@
-export async function getDevicesUsedData(
-  timeFrame?: "monthly" | "yearly" | (string & {}),
-) {
+export async function getDevicesUsedData(timeFrame) {
   // Fake delay
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const data = [
-    {
-      name: "Desktop",
-      percentage: 0.65,
-      amount: 1625,
-    },
-    {
-      name: "Tablet",
-      percentage: 0.1,
-      amount: 250,
-    },
-    {
-      name: "Mobile",
-      percentage: 0.2,
-      amount: 500,
-    },
-    {
-      name: "Unknown",
-      percentage: 0.05,
-      amount: 125,
-    },
+    { name: "Desktop", percentage: 0.65, amount: 1625 },
+    { name: "Tablet", percentage: 0.1, amount: 250 },
+    { name: "Mobile", percentage: 0.2, amount: 500 },
+    { name: "Unknown", percentage: 0.05, amount: 125 },
   ];
 
   if (timeFrame === "yearly") {
@@ -37,9 +19,7 @@ export async function getDevicesUsedData(
   return data;
 }
 
-export async function getPaymentsOverviewData(
-  timeFrame?: "monthly" | "yearly" | (string & {}),
-) {
+export async function getPaymentsOverviewData(timeFrame) {
   // Fake delay
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -94,7 +74,7 @@ export async function getPaymentsOverviewData(
   };
 }
 
-export async function getWeeksProfitData(timeFrame?: string) {
+export async function getWeeksProfitData(timeFrame) {
   // Fake delay
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -148,7 +128,7 @@ export async function getCampaignVisitorsData() {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   return {
-    total_visitors: 784_000,
+    total_visitors: 784000,
     performance: -1.5,
     chart: [
       { x: "S", y: 168 },
@@ -169,7 +149,7 @@ export async function getVisitorsAnalyticsData() {
   return [
     168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112, 123, 212, 270,
     190, 310, 115, 90, 380, 112, 223, 292, 170, 290, 110, 115, 290, 380, 312,
-  ].map((value, index) => ({ x: index + 1 + "", y: value }));
+  ].map((value, index) => ({ x: String(index + 1), y: value }));
 }
 
 export async function getCostsPerInteractionData() {
